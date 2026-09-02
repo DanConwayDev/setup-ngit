@@ -10,7 +10,12 @@
 # content-addressed mirrors (e.g. Blossom) can be listed before or after
 # the GitHub Releases mirror without affecting trust: the hash is pinned
 # here, not derived from whichever mirror served the bytes.
-latest|2.6.3
+latest|3.0.0-rc.5
+asset|3.0.0-rc.5|linux-x86_64-gnu|ngit-v3.0.0-rc.5-x86_64-unknown-linux-gnu.2.17.tar.gz|5e5eac9e73c36e5179ce166698b22aa62cf67dd0c7a1571b40abf3c179c368fd|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-x86_64-unknown-linux-gnu.2.17.tar.gz
+asset|3.0.0-rc.5|linux-x86_64-musl|ngit-v3.0.0-rc.5-x86_64-unknown-linux-musl.tar.gz|442d11216c33d81bb76cf3a11d8eb32d6ebe6c218b34ecbae6007d815bdecb97|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-x86_64-unknown-linux-musl.tar.gz
+asset|3.0.0-rc.5|linux-aarch64-gnu|ngit-v3.0.0-rc.5-aarch64-unknown-linux-gnu.2.17.tar.gz|824c1019563248cf90496353222db36d89ed2467cd1c2e626d5a887133411e66|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-aarch64-unknown-linux-gnu.2.17.tar.gz
+asset|3.0.0-rc.5|darwin-universal|ngit-v3.0.0-rc.5-universal-apple-darwin.tar.gz|94e8fac2651bfcb28d54764a45958ea709162b435d9de8d6875d0361c781fb78|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-universal-apple-darwin.tar.gz
+asset|3.0.0-rc.5|windows-x86_64|ngit-v3.0.0-rc.5-x86_64-pc-windows-msvc.zip|f886196feef048fa8bfa66590506f97064d67b23fd6ba0e711f034c747964b14|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-x86_64-pc-windows-msvc.zip
 asset|2.6.3|linux-x86_64-gnu|ngit-v2.6.3-x86_64-unknown-linux-gnu.2.17.tar.gz|81dd9b6a11a4a0feb946e56f55d557dc24075f1dcdda00ac35f9fd01920b9779|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-x86_64-unknown-linux-gnu.2.17.tar.gz
 asset|2.6.3|linux-x86_64-musl|ngit-v2.6.3-x86_64-unknown-linux-musl.tar.gz|08f037df9c7fcae1cabb3fbc426f5aa55e38866729425b78b016cc7507195949|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-x86_64-unknown-linux-musl.tar.gz
 asset|2.6.3|linux-aarch64-gnu|ngit-v2.6.3-aarch64-unknown-linux-gnu.2.17.tar.gz|e9d9437b7574e729b5a5d5cd800ebd668b73e6eb5c5859d52f83114c2f4b08b8|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-aarch64-unknown-linux-gnu.2.17.tar.gz

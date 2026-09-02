@@ -16,7 +16,8 @@ jobs:
       - uses: ./
       - shell: bash
         run: |
-          ngit --version
+          expected=$(awk -F '|' '$1 == "latest" { print $2 }' manifest.txt)
+          test "$(ngit --version)" = "ngit $expected"
           command -v git-remote-nostr
 
   pinned:
