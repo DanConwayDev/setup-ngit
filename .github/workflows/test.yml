@@ -1,0 +1,33 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  latest:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./
+      - shell: bash
+        run: |
+          ngit --version
+          command -v git-remote-nostr
+
+  pinned:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - id: setup
+        uses: ./
+        with:
+          version: 2.6.3
+      - shell: bash
+        run: |
+          test "$(ngit --version)" = 'ngit 2.6.3'
+          test '${{ steps.setup.outputs.version }}' = '2.6.3'

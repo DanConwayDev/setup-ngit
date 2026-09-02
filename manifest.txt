@@ -1,0 +1,18 @@
+# setup-ngit release manifest.
+#
+# Every asset row pins an exact SHA-256; the install script refuses any
+# download that does not match. Rows are pipe-separated:
+#
+#   latest|<version>
+#   asset|<version>|<target>|<filename>|<sha256>|<url>
+#
+# Multiple url columns may follow the first; they are tried in order, so
+# content-addressed mirrors (e.g. Blossom) can be listed before or after
+# the GitHub Releases mirror without affecting trust: the hash is pinned
+# here, not derived from whichever mirror served the bytes.
+latest|2.6.3
+asset|2.6.3|linux-x86_64-gnu|ngit-v2.6.3-x86_64-unknown-linux-gnu.2.17.tar.gz|81dd9b6a11a4a0feb946e56f55d557dc24075f1dcdda00ac35f9fd01920b9779|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-x86_64-unknown-linux-gnu.2.17.tar.gz
+asset|2.6.3|linux-x86_64-musl|ngit-v2.6.3-x86_64-unknown-linux-musl.tar.gz|08f037df9c7fcae1cabb3fbc426f5aa55e38866729425b78b016cc7507195949|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-x86_64-unknown-linux-musl.tar.gz
+asset|2.6.3|linux-aarch64-gnu|ngit-v2.6.3-aarch64-unknown-linux-gnu.2.17.tar.gz|e9d9437b7574e729b5a5d5cd800ebd668b73e6eb5c5859d52f83114c2f4b08b8|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-aarch64-unknown-linux-gnu.2.17.tar.gz
+asset|2.6.3|darwin-universal|ngit-v2.6.3-universal-apple-darwin.tar.gz|5790712bdf265ecf2da2d1f2d4e4c1a7bc7399b518a8c5b479f0b6ff7cd854bd|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-universal-apple-darwin.tar.gz
+asset|2.6.3|windows-x86_64|ngit-v2.6.3-x86_64-pc-windows-msvc.zip|2c2cd0bb878f8bc5cb71bf38c3e54c3703331a3aece3945e104da570be32abdd|https://github.com/DanConwayDev/ngit-cli/releases/download/v2.6.3/ngit-v2.6.3-x86_64-pc-windows-msvc.zip
