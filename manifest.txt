@@ -6,11 +6,19 @@
 #   latest|<version>
 #   asset|<version>|<target>|<filename>|<sha256>|<url>
 #
-# Multiple url columns may follow the first; they are tried in order, so
-# content-addressed mirrors (e.g. Blossom) can be listed before or after
-# the GitHub Releases mirror without affecting trust: the hash is pinned
-# here, not derived from whichever mirror served the bytes.
-latest|3.0.0-rc.5
+# Multiple url columns may follow the first; they are tried in order. The
+# hash pinned here decides acceptance, not whichever mirror served the
+# bytes — but note the hashes in this file were recorded from assets
+# fetched from GitHub Releases at pin time, so they attest "same bytes as
+# when pinned", not an independently verified origin. Cross-checking rows
+# against the signed NIP-82 release events on Nostr is the planned
+# stronger anchor.
+latest|3.0.0-rc.6
+asset|3.0.0-rc.6|linux-x86_64-gnu|ngit-v3.0.0-rc.6-x86_64-unknown-linux-gnu.2.17.tar.gz|03754af24782fd85ed2687669d0de4acd66ae442dd1410849727ee62a44b7877|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-x86_64-unknown-linux-gnu.2.17.tar.gz
+asset|3.0.0-rc.6|linux-x86_64-musl|ngit-v3.0.0-rc.6-x86_64-unknown-linux-musl.tar.gz|ad1a3b3dfc128dcf05ba5b301e096807f39a324a935b10a823645bc0a9ba74f8|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-x86_64-unknown-linux-musl.tar.gz
+asset|3.0.0-rc.6|linux-aarch64-gnu|ngit-v3.0.0-rc.6-aarch64-unknown-linux-gnu.2.17.tar.gz|dfc9fcbfff26a6e33781858d5bc154c492e066d6dda3fb61845b16c37e18ad1b|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-aarch64-unknown-linux-gnu.2.17.tar.gz
+asset|3.0.0-rc.6|darwin-universal|ngit-v3.0.0-rc.6-universal-apple-darwin.tar.gz|5671a134ecbb45231ce0472aa6b5bc80a252204ba4cf8ba72a48529d93a91fc8|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-universal-apple-darwin.tar.gz
+asset|3.0.0-rc.6|windows-x86_64|ngit-v3.0.0-rc.6-x86_64-pc-windows-msvc.zip|c5b6bdd6c8f71aa3f60e4f6f3b77621f45346b955c8e1474f7932095b5834219|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-x86_64-pc-windows-msvc.zip
 asset|3.0.0-rc.5|linux-x86_64-gnu|ngit-v3.0.0-rc.5-x86_64-unknown-linux-gnu.2.17.tar.gz|5e5eac9e73c36e5179ce166698b22aa62cf67dd0c7a1571b40abf3c179c368fd|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-x86_64-unknown-linux-gnu.2.17.tar.gz
 asset|3.0.0-rc.5|linux-x86_64-musl|ngit-v3.0.0-rc.5-x86_64-unknown-linux-musl.tar.gz|442d11216c33d81bb76cf3a11d8eb32d6ebe6c218b34ecbae6007d815bdecb97|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-x86_64-unknown-linux-musl.tar.gz
 asset|3.0.0-rc.5|linux-aarch64-gnu|ngit-v3.0.0-rc.5-aarch64-unknown-linux-gnu.2.17.tar.gz|824c1019563248cf90496353222db36d89ed2467cd1c2e626d5a887133411e66|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.5/ngit-v3.0.0-rc.5-aarch64-unknown-linux-gnu.2.17.tar.gz

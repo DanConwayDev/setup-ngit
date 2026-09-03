@@ -1,8 +1,8 @@
 name: Setup ngit
 description: >-
-  Install ngit and git-remote-nostr from a pinned, checksum-verified release
-  manifest. Works on GitHub-hosted runners and in act-based runners such as
-  ngit-ci.
+  Install ngit and git-remote-nostr from a version-pinned release manifest,
+  with downloads checked against the SHA-256 recorded at pin time. Works on
+  GitHub-hosted runners and in act-based runners such as ngit-ci.
 branding:
   icon: git-branch
   color: purple

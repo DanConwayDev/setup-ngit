@@ -37,16 +37,26 @@ Pin a specific ngit version:
 | --------- | ---------------------------------- |
 | `version` | The ngit version that was installed. |
 
-## How it verifies downloads
+## How it verifies downloads — and what that does and doesn't cover
 
 `manifest.txt` in this repository pins the exact SHA-256 of every release
 asset. The install script downloads from the mirrors listed for the asset
-(tried in order) and refuses anything whose hash does not match, so no
-mirror — including GitHub — is in the trust path. Pin this action by tag or
-commit SHA and the whole chain is pinned.
+(tried in order) and refuses anything whose hash does not match. `latest`
+resolves against the manifest shipped with the action ref you use, not
+against a network lookup, so runs are reproducible per action ref.
 
-`latest` resolves against the manifest shipped with the action ref you pin,
-not against a network lookup, so runs are reproducible per action ref.
+Be clear-eyed about what this guarantees. The pinned hash ensures every
+run installs byte-for-byte the asset that was current when the manifest
+row was recorded — a mirror (GitHub Releases included) cannot later swap
+the artifact without the install failing loudly. It does **not** make the
+pinning step itself independent of GitHub: the manifest rows were recorded
+from assets fetched from GitHub Releases, and `uses:` fetches this action
+(manifest included) from GitHub. Pinning the action by full commit SHA
+makes the manifest content tamper-evident; pinning only by tag leaves the
+tag movable. The stronger anchor — recording and cross-checking manifest
+rows against the signed NIP-82 release events on Nostr, with Blossom
+content-addressed URLs listed as mirrors — is planned but not yet wired
+up.
 
 ## Supported platforms
 
