@@ -8,12 +8,18 @@
 #
 # Multiple url columns may follow the first; they are tried in order. The
 # hash pinned here decides acceptance, not whichever mirror served the
-# bytes — but note the hashes in this file were recorded from assets
-# fetched from GitHub Releases at pin time, so they attest "same bytes as
-# when pinned", not an independently verified origin. Cross-checking rows
-# against the signed NIP-82 release events on Nostr is the planned
-# stronger anchor.
-latest|3.0.0-rc.6
+# bytes. From 3.0.0-rc.7 on, rows are recorded from ngit's signed NIP-82
+# release asset events: the hash is the event's sha256, the first URL is
+# the content-addressed Blossom URL from the event, and the GitHub
+# Releases URL is a trailing fallback mirror. Rows for earlier versions
+# were recorded by hashing assets fetched from GitHub Releases, so they
+# attest "same bytes as when pinned" without an independent origin.
+latest|3.0.0-rc.7
+asset|3.0.0-rc.7|linux-x86_64-gnu|ngit-v3.0.0-rc.7-x86_64-unknown-linux-gnu.2.17.tar.gz|983d9bee2c042cfb10326e6ebfa4f8a2702994221ec87f9c2e30a9f675b44644|https://blossom.primal.net/983d9bee2c042cfb10326e6ebfa4f8a2702994221ec87f9c2e30a9f675b44644|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.7/ngit-v3.0.0-rc.7-x86_64-unknown-linux-gnu.2.17.tar.gz
+asset|3.0.0-rc.7|linux-x86_64-musl|ngit-v3.0.0-rc.7-x86_64-unknown-linux-musl.tar.gz|fdb17c8ece181fb28bbf00da700c0d5ca75fb2e69d49251b8a70cfb694aac842|https://blossom.primal.net/fdb17c8ece181fb28bbf00da700c0d5ca75fb2e69d49251b8a70cfb694aac842|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.7/ngit-v3.0.0-rc.7-x86_64-unknown-linux-musl.tar.gz
+asset|3.0.0-rc.7|linux-aarch64-gnu|ngit-v3.0.0-rc.7-aarch64-unknown-linux-gnu.2.17.tar.gz|8aea47544a51bf1e2e766533b72a19efface4cb539a96dd9d011966602bf8ac3|https://blossom.primal.net/8aea47544a51bf1e2e766533b72a19efface4cb539a96dd9d011966602bf8ac3|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.7/ngit-v3.0.0-rc.7-aarch64-unknown-linux-gnu.2.17.tar.gz
+asset|3.0.0-rc.7|darwin-universal|ngit-v3.0.0-rc.7-universal-apple-darwin.tar.gz|960072f1f8050992fd07a6fb9f1d4710501a58fa7e877c567f8b1952ec7ca9cc|https://blossom.primal.net/960072f1f8050992fd07a6fb9f1d4710501a58fa7e877c567f8b1952ec7ca9cc|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.7/ngit-v3.0.0-rc.7-universal-apple-darwin.tar.gz
+asset|3.0.0-rc.7|windows-x86_64|ngit-v3.0.0-rc.7-x86_64-pc-windows-msvc.zip|d71e3878d9f37b22850528f88e6c076eabb8006c80908945a1265f8aadbdf2d8|https://blossom.primal.net/d71e3878d9f37b22850528f88e6c076eabb8006c80908945a1265f8aadbdf2d8|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.7/ngit-v3.0.0-rc.7-x86_64-pc-windows-msvc.zip
 asset|3.0.0-rc.6|linux-x86_64-gnu|ngit-v3.0.0-rc.6-x86_64-unknown-linux-gnu.2.17.tar.gz|03754af24782fd85ed2687669d0de4acd66ae442dd1410849727ee62a44b7877|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-x86_64-unknown-linux-gnu.2.17.tar.gz
 asset|3.0.0-rc.6|linux-x86_64-musl|ngit-v3.0.0-rc.6-x86_64-unknown-linux-musl.tar.gz|ad1a3b3dfc128dcf05ba5b301e096807f39a324a935b10a823645bc0a9ba74f8|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-x86_64-unknown-linux-musl.tar.gz
 asset|3.0.0-rc.6|linux-aarch64-gnu|ngit-v3.0.0-rc.6-aarch64-unknown-linux-gnu.2.17.tar.gz|dfc9fcbfff26a6e33781858d5bc154c492e066d6dda3fb61845b16c37e18ad1b|https://github.com/DanConwayDev/ngit-cli/releases/download/v3.0.0-rc.6/ngit-v3.0.0-rc.6-aarch64-unknown-linux-gnu.2.17.tar.gz

@@ -46,17 +46,19 @@ resolves against the manifest shipped with the action ref you use, not
 against a network lookup, so runs are reproducible per action ref.
 
 Be clear-eyed about what this guarantees. The pinned hash ensures every
-run installs byte-for-byte the asset that was current when the manifest
-row was recorded — a mirror (GitHub Releases included) cannot later swap
-the artifact without the install failing loudly. It does **not** make the
-pinning step itself independent of GitHub: the manifest rows were recorded
-from assets fetched from GitHub Releases, and `uses:` fetches this action
+run installs byte-for-byte the asset the manifest row was recorded
+against — no mirror can later swap the artifact without the install
+failing loudly. From ngit 3.0.0-rc.7 onward, rows are recorded from
+ngit's signed NIP-82 release asset events: the hash is the sha256 the
+release author signed, downloads try the content-addressed Blossom URL
+first, and the GitHub Releases URL is only a trailing fallback mirror.
+Rows for earlier versions were recorded by hashing assets fetched from
+GitHub Releases, so their origin rests on GitHub at pin time.
+
+One GitHub dependency remains regardless: `uses:` fetches this action
 (manifest included) from GitHub. Pinning the action by full commit SHA
 makes the manifest content tamper-evident; pinning only by tag leaves the
-tag movable. The stronger anchor — recording and cross-checking manifest
-rows against the signed NIP-82 release events on Nostr, with Blossom
-content-addressed URLs listed as mirrors — is planned but not yet wired
-up.
+tag movable.
 
 ## Supported platforms
 
