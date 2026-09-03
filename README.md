@@ -12,14 +12,14 @@ workflow file can run on a GitHub mirror and on Nostr-native CI unchanged.
 ## Usage
 
 ```yaml
-- uses: danconwaydev/setup-ngit@v1
+- uses: danconwaydev/setup-ngit@v3
 - run: ngit --version
 ```
 
 Pin a specific ngit version:
 
 ```yaml
-- uses: danconwaydev/setup-ngit@v1
+- uses: danconwaydev/setup-ngit@v3
   with:
     version: 2.6.3
 ```
@@ -77,9 +77,17 @@ The canonical repository lives on Nostr; the GitHub repository is a mirror
 that exists so `uses:` resolution works. Contribute via ngit with a
 `pr/`-prefixed branch.
 
+The action's floating tags track ngit's major version: `v3` always points
+at the commit whose manifest pins the newest ngit 3.x as `latest`. When a
+new ngit major ships, a fresh floating tag (`v4`, ...) starts and the old
+one stays frozen at the last release of its major, so `@vN` never crosses
+a breaking ngit major. There is no separate action-version tag series;
+for exact reproducibility pin `with: version:` or pin this action by
+commit SHA.
+
 To add a release, append `asset|...` rows for the new version to
-`manifest.txt`, update the `latest|...` line, and tag. The floating `v1`
-tag follows the newest `v1.x.y`.
+`manifest.txt`, update the `latest|...` line, and slide the major's
+floating tag.
 
 ## License
 
