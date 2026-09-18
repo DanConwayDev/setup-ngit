@@ -87,9 +87,25 @@ a breaking ngit major. There is no separate action-version tag series;
 for exact reproducibility pin `with: version:` or pin this action by
 commit SHA.
 
-To add a release, append `asset|...` rows for the new version to
-`manifest.txt`, update the `latest|...` line, and slide the major's
-floating tag.
+To prepare a final release update (Node.js 22+, Git and ngit v3 required):
+
+```sh
+node scripts/sync-release.mjs 3.0.2
+node --test scripts/*.test.mjs
+node scripts/sync-release.mjs 3.0.2 --check
+```
+
+The sync resolves the tag through ngit's canonical Nostr repository, verifies
+the signed NIP-82 release and all five archive bodies, and generates the new
+manifest rows and `latest` entry. Existing pins are immutable. Repeating the
+same release makes no changes; `--check` verifies without writing and fails
+when an update is needed. Missing assets, changed pins, downgrades, and crossing
+a major version fail closed. A new major requires a reviewed promotion change.
+
+Review and commit the result, test the action, then push `main` to Nostr and
+the GitHub mirror before advancing the floating major tag on both. The sync
+does not commit, push, move tags, or require publication secrets. Automatic
+release-event triggering and publication are separate follow-up work.
 
 ## License
 
