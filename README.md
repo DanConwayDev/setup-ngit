@@ -51,7 +51,9 @@ against — no mirror can later swap the artifact without the install
 failing loudly. From ngit 3.0.0-rc.7 onward, rows are recorded from
 ngit's signed NIP-82 release asset events: the hash is the sha256 the
 release author signed, downloads try the content-addressed Blossom URL
-first, and the GitHub Releases URL is only a trailing fallback mirror.
+first, and the GitHub Releases URL is only a trailing fallback mirror. If a
+release omits that URL, sync derives the standard GitHub download URL; the
+installer still checks its bytes against the signed asset hash.
 Rows for earlier versions were recorded by hashing assets fetched from
 GitHub Releases, so their origin rests on GitHub at pin time.
 
