@@ -89,9 +89,11 @@ export function releaseRows(document, version, commit) {
     const extension = suffix.endsWith(".zip") ? ".zip" : ".gz";
     assert.ok([asset.sha256, asset.sha256 + extension].includes(url.pathname.split("/").at(-1)),
       "asset URL must be content-addressed");
-    assert.equal(asset.original_url,
-      `https://github.com/DanConwayDev/ngit-cli/releases/download/v${version}/${filename}`);
-    return ["asset", version, target, filename, asset.sha256, asset.url, asset.original_url].join("|");
+    const mirror = `https://github.com/DanConwayDev/ngit-cli/releases/download/v${version}/${filename}`;
+    // Canonical releases need not wait for the independent GitHub mirror.
+    // The installer verifies this derived fallback against the signed hash.
+    if (asset.original_url != null) assert.equal(asset.original_url, mirror);
+    return ["asset", version, target, filename, asset.sha256, asset.url, mirror].join("|");
   });
 }
 

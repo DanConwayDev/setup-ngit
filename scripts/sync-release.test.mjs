@@ -138,3 +138,12 @@ test("sync checks before writing, repeats without drift, and preserves files on 
     assert.equal(await readFile(manifestPath, "utf8"), after + "# concurrent edit\n");
   } finally { await rm(directory, { recursive: true, force: true }); }
 });
+
+test("Blossom-only releases retain a deterministic checksum-guarded GitHub fallback", () => {
+  const document = fixture();
+  const expected = releaseRows(document, version, commit);
+  for (const asset of document.result.assets) delete asset.original_url;
+  assert.deepEqual(releaseRows(document, version, commit), expected);
+  for (const asset of document.result.assets) asset.original_url = null;
+  assert.deepEqual(releaseRows(document, version, commit), expected);
+});
